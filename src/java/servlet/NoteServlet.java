@@ -17,13 +17,39 @@
 
 package servlet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import model.Note;
 
 /**
  * Provides an Account Balance and Basic Withdrawal/Deposit Operations
  */
 @WebServlet("/note")
 public class NoteServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+
+        try (PrintWriter out = response.getWriter()) {
+           model.Note servlet=new Note();
+           String something=servlet.getNote();
+            out.println(something);
+             String name = request.getParameter("name");
+        } catch (IOException ex) {
+            System.err.println("Something Went Wrong: " + ex.getMessage());
+        }
+    }
     
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+        try (PrintWriter out = response.getWriter()) {
+            out.println("Hello valid editor!");
+        } catch (IOException ex) {
+            System.err.println("Something Went Wrong: " + ex.getMessage());
+        }
+    }
 }

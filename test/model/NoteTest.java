@@ -33,9 +33,16 @@ public class NoteTest {
         Note instance = new Note();
         String expResult = "";
         String result = instance.getNote();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result);
     }
 
+      @Test
+    public void testGetNote() {
+        Note instance = new Note();
+        String expResult = "";
+        String result = instance.getNote();
+        assertEquals(expResult, result);
+    }
     @Test
     public void testGetNoteIssomegibberishAfterSetsomegibberish() {
         String words = "somegibberish";
@@ -43,7 +50,7 @@ public class NoteTest {
         instance.setNote(words);
         String expResult = "somegibberish";
         String result = instance.getNote();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result);
     }
 
     @Test
@@ -54,7 +61,7 @@ public class NoteTest {
       instance.addNote("ly");
        String expResult = "Exactly";
        String result = instance.getNote();
-       assertEquals(expResult, result, 0.0);
+       assertEquals(expResult, result);
     }
     
     @Test
@@ -65,6 +72,6 @@ public class NoteTest {
          instance.clear();
          String expResult="";
          String result = instance.getNote();
-         assertEquals(expResult, result, 0.0);
+         assertEquals(expResult, result);
     }
 }
