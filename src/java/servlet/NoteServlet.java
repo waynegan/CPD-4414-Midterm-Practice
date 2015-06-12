@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 Len Payne <len.payne@lambtoncollege.ca>.
+ * Updated 2015 Mark Russell <mark.russell@lambtoncollege.ca>s
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServlet;
 /**
  * Provides an Account Balance and Basic Withdrawal/Deposit Operations
  */
-@WebServlet("/account")
-public class AccountServlet extends HttpServlet {
+@WebServlet("/note")
+public class NoteServlet extends HttpServlet {
     
 }
