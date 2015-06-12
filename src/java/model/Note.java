@@ -28,8 +28,9 @@ public class Note {
      * Returns the current note
      * @return - the note
      */
+    private String words="";
     public String getNote() {
-        return "";
+        return words;
     }
     
     /**
@@ -37,7 +38,7 @@ public class Note {
      * @param words - the text to add
      */
     public void setNote(String words) {
-        
+        this.words=words;
     }
     
     /**
@@ -45,13 +46,13 @@ public class Note {
      * @param words - the text to remove
      */
     public void addNote(String words) {
-    
+        this.words=this.words+words;
     }
     
     /**
      * Removes all text from the note
      */
     public void clear() {
-        
+        words="";
     }
 }
