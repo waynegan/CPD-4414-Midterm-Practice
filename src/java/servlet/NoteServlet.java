@@ -30,14 +30,17 @@ import model.Note;
  */
 @WebServlet("/note")
 public class NoteServlet extends HttpServlet {
+    Note myNote = new Note();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+ response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
         try (PrintWriter out = response.getWriter()) {
-           model.Note servlet=new Note();
-           String something=servlet.getNote();
+           
+           String something=myNote.getNote();
             out.println(something);
-             String name = request.getParameter("name");
+            
         } catch (IOException ex) {
             System.err.println("Something Went Wrong: " + ex.getMessage());
         }
@@ -46,10 +49,14 @@ public class NoteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
-        try (PrintWriter out = response.getWriter()) {
-            out.println("Hello valid editor!");
-        } catch (IOException ex) {
-            System.err.println("Something Went Wrong: " + ex.getMessage());
-        }
+        String addWord = request.getParameter("add");   
+        String setWord = request.getParameter("set");  
+        String doClear = request.getParameter("clear");
+        if (doClear != null)
+            myNote.clear();
+        if (addWord != null)
+            myNote.addNote(addWord);
+        if (setWord != null)
+            myNote.setNote(setWord);
     }
 }

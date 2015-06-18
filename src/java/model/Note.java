@@ -28,7 +28,12 @@ public class Note {
      * Returns the current note
      * @return - the note
      */
-    private String words="";
+    private String words;
+    
+    public Note(){
+        words = "";
+    }
+    
     public String getNote() {
         return words;
     }

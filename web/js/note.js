@@ -28,7 +28,7 @@ function addNote() {
     $.ajax({
        url: 'note',
        method: 'POST',
-       data: { 'addNote' : $('#addNote').val()},
+       data: { 'add' : $('#add').val()},
        success: refreshContent
     });
 }
@@ -36,7 +36,7 @@ function setNote() {
     $.ajax({
        url: 'note',
        method: 'POST',
-       data: { 'setNote' : $('#setNote').val()},
+       data: { 'set' : $('#set').val()},
        success: refreshContent
     });
 }
